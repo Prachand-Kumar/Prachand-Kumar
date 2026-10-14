@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10283f">
+  <meta name="description" content="Class 9 TALLENTEX-style study material and 80-question mock examination.">
+  <title>Exam Hall — Class 9 Mock Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,750&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#" data-action="home" aria-label="Exam Hall home">
+      <span class="brand-mark">EH</span>
+      <span>
+        <strong>Exam Hall</strong>
+        <small>Class IX practice portal</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <button class="text-button" type="button" data-action="study">Study desk</button>
+      <button class="text-button" type="button" data-action="resume" hidden>Resume exam</button>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <section class="loading-screen" aria-live="polite">
+      <span class="loader-ring"></span>
+      <p>Opening the question booklet…</p>
+    </section>
+  </main>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="submit-dialog" class="exam-dialog">
+    <form method="dialog">
+      <p class="eyebrow">Final check</p>
+      <h2>Submit your answer sheet?</h2>
+      <div id="submit-summary" class="submit-summary"></div>
+      <p class="dialog-note">Once submitted, this attempt cannot be changed.</p>
+      <div class="dialog-actions">
+        <button class="button secondary" value="cancel">Return to exam</button>
+        <button class="button danger" value="confirm">Submit test</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="exit-dialog" class="exam-dialog">
+    <form method="dialog">
+      <p class="eyebrow">Leave exam mode</p>
+      <h2>Your attempt is saved.</h2>
+      <p class="dialog-note">The timer will continue running even after you leave this screen.</p>
+      <div class="dialog-actions">
+        <button class="button secondary" value="cancel">Keep writing</button>
+        <button class="button danger" value="confirm">Exit exam</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="icon-template">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></svg>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,10 +1,15 @@
-- 👋 Hi, I’m @Prachand-Kumar
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+# Exam Hall — Class 9 Mock Test
 
-<!---
-Prachand-Kumar/Prachand-Kumar is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+An interactive TALLENTEX-style preparation website based on the supplied Class 9 syllabus and sample-paper pattern.
+
+## Features
+
+- 80-question, 120-minute mock examination
+- Physics, Chemistry, Biology, Mathematics and Mental Ability sections
+- +4/−1 scoring and OMR-style question palette
+- Mark-for-review, section navigation and keyboard shortcuts
+- Autosaved answers and countdown timer
+- Subject-level result analysis and complete answer review
+- High-yield notes and a 21-day preparation plan
+
+The site is a dependency-free static application and is deployed with GitHub Pages.
