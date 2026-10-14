@@ -263,7 +263,7 @@ function renderStudy() {
         Read the concepts, close the chapter and recall them, redo the solved example without looking,
         then answer every reasoning check before opening its solution.
       </div>
-      <div class="chapter-list">
+      <div class="chapter-list" id="chapter-material">
         ${chapters.map((chapter, chapterIndex) => `
           <details class="chapter-module" ${chapterIndex === 0 ? "open" : ""}>
             <summary>
@@ -316,6 +316,7 @@ function renderStudy() {
           <p class="eyebrow">Preparation rhythm</p>
           <h1>21-day plan</h1>
         </div>
+        <button class="button secondary" type="button" data-action="jump-chapters">↑ Back to chapter material</button>
       </div>
       <div class="plan-grid">
         ${pack.plan.map((item) => `
@@ -700,6 +701,9 @@ function handleAction(action) {
       if (!review.hidden) review.scrollIntoView({ behavior: "smooth" });
       break;
     }
+    case "jump-chapters":
+      document.querySelector("#chapter-material")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      break;
     default:
       break;
   }
