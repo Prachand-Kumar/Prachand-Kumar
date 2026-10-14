@@ -11,5 +11,6 @@ An interactive TALLENTEX-style preparation website based on the supplied Class 9
 - Autosaved answers and countdown timer
 - Subject-level result analysis and complete answer review
 - High-yield notes and a 21-day preparation plan
+- NCERT-aligned chapter modules with formulas, solved examples and reasoning checks
 
 The site is a dependency-free static application and is deployed with GitHub Pages.

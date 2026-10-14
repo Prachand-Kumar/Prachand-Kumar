@@ -235,9 +235,10 @@ function renderStudy() {
   currentView = "study";
   document.body.classList.remove("exam-active");
   updateResumeButton();
-  const subjects = Object.keys(pack.notes);
+  const material = window.STUDY_MATERIAL || {};
+  const subjects = Object.keys(material);
   if (!subjects.includes(selectedStudySubject)) selectedStudySubject = subjects[0];
-  const notes = pack.notes[selectedStudySubject];
+  const chapters = material[selectedStudySubject] || [];
 
   app.innerHTML = `
     <section class="study-page">
@@ -257,12 +258,57 @@ function renderStudy() {
           </button>
         `).join("")}
       </nav>
-      <div class="note-grid">
-        ${notes.map((note) => `
-          <article class="note-card">
-            <h3>${escapeHtml(note.title)}</h3>
-            <p>${escapeHtml(note.text)}</p>
-          </article>
+      <div class="study-guidance">
+        <b>How to study:</b>
+        Read the concepts, close the chapter and recall them, redo the solved example without looking,
+        then answer every reasoning check before opening its solution.
+      </div>
+      <div class="chapter-list">
+        ${chapters.map((chapter, chapterIndex) => `
+          <details class="chapter-module" ${chapterIndex === 0 ? "open" : ""}>
+            <summary>
+              <span class="chapter-index">${String(chapterIndex + 1).padStart(2, "0")}</span>
+              <span class="chapter-heading">
+                <small>${escapeHtml(chapter.level)}</small>
+                <strong>${escapeHtml(chapter.title)}</strong>
+                <em>${escapeHtml(chapter.summary)}</em>
+              </span>
+              <span class="chapter-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="chapter-content">
+              <section class="concept-panel">
+                <p class="study-label">Core concepts</p>
+                <ul>
+                  ${chapter.concepts.map((concept) => `<li>${escapeHtml(concept)}</li>`).join("")}
+                </ul>
+              </section>
+              <section class="formula-panel">
+                <p class="study-label">Formula and recall desk</p>
+                <div class="formula-list">
+                  ${chapter.formulas.map((formula) => `<code>${escapeHtml(formula)}</code>`).join("")}
+                </div>
+              </section>
+              <section class="worked-example">
+                <p class="study-label">Solved multi-step example</p>
+                <h3>${escapeHtml(chapter.example.question)}</h3>
+                <ol>
+                  ${chapter.example.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}
+                </ol>
+                <p class="worked-answer"><b>Answer:</b> ${escapeHtml(chapter.example.answer)}</p>
+              </section>
+              <section class="reasoning-panel">
+                <p class="study-label">Reasoning checks</p>
+                <div class="check-list">
+                  ${chapter.checks.map(([question, answer], checkIndex) => `
+                    <details class="check-item">
+                      <summary><span>Q${checkIndex + 1}</span>${escapeHtml(question)}</summary>
+                      <p>${escapeHtml(answer)}</p>
+                    </details>
+                  `).join("")}
+                </div>
+              </section>
+            </div>
+          </details>
         `).join("")}
       </div>
       <div class="page-heading" style="margin-top:72px">

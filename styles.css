@@ -442,6 +442,217 @@ button {
   gap: 16px;
 }
 
+.study-guidance {
+  margin-bottom: 18px;
+  padding: 18px 20px;
+  color: var(--ink-soft);
+  border-left: 4px solid var(--red);
+  background: rgba(255, 253, 247, .7);
+  line-height: 1.6;
+}
+
+.study-guidance b {
+  color: var(--ink);
+}
+
+.chapter-list {
+  display: grid;
+  gap: 14px;
+}
+
+.chapter-module {
+  border: 1px solid var(--rule);
+  background: rgba(255, 253, 247, .73);
+  box-shadow: 0 14px 38px rgba(16, 40, 63, .06);
+}
+
+.chapter-module > summary {
+  display: grid;
+  grid-template-columns: 54px 1fr 32px;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 24px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.chapter-module > summary::-webkit-details-marker {
+  display: none;
+}
+
+.chapter-index {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  color: white;
+  border-radius: 50%;
+  background: var(--ink);
+  font-family: var(--mono);
+  font-size: .76rem;
+}
+
+.chapter-heading small,
+.chapter-heading strong,
+.chapter-heading em {
+  display: block;
+}
+
+.chapter-heading small {
+  margin-bottom: 4px;
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: .65rem;
+  font-style: normal;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.chapter-heading strong {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.chapter-heading em {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: .84rem;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.chapter-toggle {
+  font-family: var(--display);
+  font-size: 2rem;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+
+.chapter-module[open] .chapter-toggle {
+  transform: rotate(45deg);
+}
+
+.chapter-content {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 1px;
+  border-top: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.chapter-content > section {
+  padding: 26px;
+  background: var(--paper-bright);
+}
+
+.study-label {
+  margin: 0 0 16px;
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.concept-panel ul,
+.worked-example ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.concept-panel li,
+.worked-example li {
+  margin: 0 0 10px;
+  color: var(--ink-soft);
+  line-height: 1.58;
+}
+
+.concept-panel li::marker,
+.worked-example li::marker {
+  color: var(--red);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.formula-panel {
+  background: var(--ink) !important;
+}
+
+.formula-panel .study-label {
+  color: #edb35e;
+}
+
+.formula-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.formula-list code {
+  padding: 9px 11px;
+  color: var(--paper-bright);
+  border: 1px solid rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .06);
+  font-family: var(--mono);
+  font-size: .76rem;
+}
+
+.worked-example h3 {
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.worked-answer {
+  margin: 18px 0 0;
+  padding: 13px 15px;
+  color: var(--green);
+  border-left: 3px solid var(--green);
+  background: #edf6f1;
+  line-height: 1.5;
+}
+
+.check-list {
+  display: grid;
+  gap: 8px;
+}
+
+.check-item {
+  border: 1px solid #ddd7c9;
+  background: #fffdf8;
+}
+
+.check-item summary {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 12px 13px;
+  list-style: none;
+  cursor: pointer;
+  line-height: 1.45;
+}
+
+.check-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.check-item summary span {
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 500;
+}
+
+.check-item p {
+  margin: 0;
+  padding: 0 16px 14px 57px;
+  color: var(--green);
+  line-height: 1.5;
+}
+
 .note-card {
   position: relative;
   padding: 28px;
@@ -1151,6 +1362,10 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .chapter-content {
+    grid-template-columns: 1fr;
+  }
+
   .page-heading,
   .result-hero {
     grid-template-columns: 1fr;
@@ -1158,6 +1373,25 @@ button {
 
   .plan-row {
     grid-template-columns: 62px 1fr;
+  }
+
+  .chapter-module > summary {
+    grid-template-columns: 42px 1fr 22px;
+    gap: 11px;
+    padding: 18px 14px;
+  }
+
+  .chapter-index {
+    width: 38px;
+    height: 38px;
+  }
+
+  .chapter-heading em {
+    display: none;
+  }
+
+  .chapter-content > section {
+    padding: 20px 17px;
   }
 
   .plan-row span:last-child {
